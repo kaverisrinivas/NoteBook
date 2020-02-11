@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_crads.view.*
+import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,8 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //Load from DB
         LoadQuery("%")
     }
 
@@ -49,41 +48,20 @@ class MainActivity : AppCompatActivity() {
             } while (cursor.moveToNext())
         }
 
-        //adapter
+
         var myNotesAdapter = MyNotesAdapter(this, listNotes)
-        //set adapter
         notesLv.adapter = myNotesAdapter
 
-        //get total number of tasks from ListView
-        val total = notesLv.count
-        //actionbar
-        val mActionBar = supportActionBar
+
+       val total = notesLv.count
+       val mActionBar = supportActionBar
         if (mActionBar != null) {
-            //set to actionbar as subtitle of actionbar
             mActionBar.subtitle = "You have $total note(s) in list..."
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
-
-       /* //searchView
-        val sv: SearchView = menu!!.findItem(R.id.app_bar_search).actionView as SearchView
-
-        val sm = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        sv.setSearchableInfo(sm.getSearchableInfo(componentName))
-        sv.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                LoadQuery("%" + query + "%")
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                LoadQuery("%" + newText + "%")
-                return false
-            }
-        });*/
-
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -93,9 +71,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.addNote -> {
                     startActivity(Intent(this, AddNoteActivity::class.java))
                 }
-               /* R.id.action_settings -> {
-                    Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
-                }*/
             }
         }
         return super.onOptionsItemSelected(item)

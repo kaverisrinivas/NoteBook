@@ -2,11 +2,14 @@ package com.example.yulo
 
 import java.util.*
 
-class DataNote (nodeID: Int, nodeName: String, nodeDes: String) {
+class DataNote(
+    valID: Int,
+    valName: String,
+    valDes: String
+) {
 
-        var nodeID: Int? = nodeID
-        var nodeName: String? = nodeName
-        var nodeDes: String? = nodeDes
-        //var updatedAt: Date = Calendar.getInstance().time
+        var nodeID: Int? = valID
+        var nodeName: String? = valName
+        var nodeDes: String? = valDes
 
     }

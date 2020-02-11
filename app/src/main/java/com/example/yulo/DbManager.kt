@@ -1,6 +1,4 @@
 package com.example.yulo
-
-import android.app.DownloadManager
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -16,8 +14,9 @@ class DbManager {
     var colID = "ID"
     var colTitle = "Title"
     var colDes = "Description"
+    var colTime ="Date"
     var dbVersion = 1
-    val sqlCreateTable = "CREATE TABLE IF NOT EXISTS " + dbTable + " (" + colID + " INTEGER PRIMARY KEY," + colTitle + " TEXT, " + colDes + " TEXT);"
+    val sqlCreateTable = "CREATE TABLE IF NOT EXISTS " + dbTable + " (" + colID + " INTEGER PRIMARY KEY," + colTitle + " TEXT, " + colDes + " TEXT," +colTime + " DATETIME DEFAULT CURRENT_TIMESTAMP);"
     var sqlDB: SQLiteDatabase? = null
 
     constructor(context: Context) {
