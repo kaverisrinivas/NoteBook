@@ -11,20 +11,13 @@ import android.widget.Toast
 
 class DbManager {
 
-    //database name
     var dbName = "MyNotes"
-    //table name
     var dbTable = "Notes"
-    //columns
     var colID = "ID"
     var colTitle = "Title"
     var colDes = "Description"
-    //database version
     var dbVersion = 1
-
-    //CREATE TABLE IF NOT EXISTS MyNotes (ID INTEGER PRIMARY KEY,title TEXT, Description TEXT);"
     val sqlCreateTable = "CREATE TABLE IF NOT EXISTS " + dbTable + " (" + colID + " INTEGER PRIMARY KEY," + colTitle + " TEXT, " + colDes + " TEXT);"
-
     var sqlDB: SQLiteDatabase? = null
 
     constructor(context: Context) {

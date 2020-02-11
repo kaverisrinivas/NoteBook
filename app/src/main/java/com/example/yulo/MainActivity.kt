@@ -1,6 +1,4 @@
 package com.example.yulo
-
-import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_crads.view.*
 
@@ -70,7 +67,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
 
-        //searchView
+       /* //searchView
         val sv: SearchView = menu!!.findItem(R.id.app_bar_search).actionView as SearchView
 
         val sm = getSystemService(Context.SEARCH_SERVICE) as SearchManager
@@ -85,7 +82,7 @@ class MainActivity : AppCompatActivity() {
                 LoadQuery("%" + newText + "%")
                 return false
             }
-        });
+        });*/
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -96,9 +93,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.addNote -> {
                     startActivity(Intent(this, AddNoteActivity::class.java))
                 }
-                R.id.action_settings -> {
+               /* R.id.action_settings -> {
                     Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
-                }
+                }*/
             }
         }
         return super.onOptionsItemSelected(item)
